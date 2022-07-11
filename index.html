@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>LUDO</title>
+</head>
+
+<body>
+    <div class="startmenu" id="startmenu">
+        <div class="container" id="formelement1" style="padding: 2rem;">
+            <h1 class="text-center">Start Menu</h1>
+            <form >
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                    <select class="form-select" id="inputGroupSelect02">
+                      <option value="2" selected>2</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary" onclick="Submit1(event)">Start Game</button>
+            </form>
+            <h1 class="text-center"> Instruction </h1>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Choose Number of player</div>
+            Choose Number of player from <strong> Start Menu</strong> or from the <strong>Form</strong> below ludo
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">SafePoints</div>
+            All the coloured boxes are <strong>safepoints</strong> as well as <strong>starting point</strong> for respective color
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Moving token</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">After generating number from the dice <strong>select the number card</strong> and then <strong>press the token</strong> you want to move.</li>
+                <li class="list-group-item">If you have no tokens to move, then your chance will be <strong>skipped</strong></li>
+              </ul> 
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">How to Win</div>
+              To Win just make sure to reach the <strong>endpoints</strong> with both of your tokens. <strong>endpoint</strong> is previous to the starting box
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Three 6 Rule</div>
+              As you know if you get a 6 on the dice you get extra throw of the dice but if get <strong>three 6 in row</strong> you loose your chance <strong>Turn</strong> is previous to the starting box
+            </div>
+          </li>
+      </ol>
+        </div>
+        
+    </div>
+    <div class="bigContainer" id="ludo">
+        <div class="house" id="redHouse">
+            <h1 class="red">RED HOUSE</h1>
+        </div>
+        <div class="house " id="greenHouse">
+            <h1 class="green">GREEN HOUSE</h1>
+        </div>
+        <div class="house " id="yellowHouse">
+            <h1 class="yellow">YELLOW HOUSE</h1>
+        </div>
+        <div class="house " id="blueHouse">
+            <h1 class="blue">BLUE HOUSE</h1>
+        </div>
+    <div class="ludoContainer" id="LudoContainer">
+        <div class="diceContainer text-center align-middle">
+            <div class="dicehead  fs-1">
+                Dice!
+            </div>
+            <div class="generator">
+                <button type="button" class="btn btn-primary m-1" onclick="spinDice()" id="regularDice">Regular DICE!</button>
+                <button class="btn btn-primary m-1" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="cheatDice" >
+                    Cheat DICE!
+                </button>
+                <div class="collapse m-2" id="collapseExample">
+                    <div class="card card-body">
+                        <input class="form-control" type="number" placeholder="Input number of your choice" aria-label="default input example" id="cheatnumber" min="1" max="6">
+                        <button type="submit" class="btn btn-primary m-2" onclick="cheatNumber()" id="cheatDice" >Cheat</button>
+                    </div>
+                </div>
+                <div class="spinner m-2" id="spinner">
+                    
+                </div>
+                <div class="m-2" id="diceCard">
+                <div style="visibility: hidden; height: 0;">hello</div>
+                </div>
+            </div>
+        </div>
+        <div class="smallbox" id="box1" style="background-color: rgba(255, 106, 84, 0.737);"></div>
+        <div class="smallbox" id="box2"></div>
+        <div class="smallbox" id="box3"></div>
+        <div class="smallbox" id="box4"></div>
+        <div class="smallbox" id="box5"></div>
+        <div class="smallbox" id="box6"></div>
+        <div class="smallbox" id="box7"></div>
+        <div class="smallbox" id="box8" style="background-color: rgba(76, 255, 73, 0.744);"></div>
+        <div class="smallbox" id="box28"></div>
+        <div class="smallbox" id="box9"></div>
+        <div class="smallbox" id="box27"></div>
+        <div class="smallbox" id="box10"></div>
+        <div class="smallbox" id="box26"></div>
+        <div class="smallbox" id="box11"></div>
+        <div class="smallbox" id="box25"></div>
+        <div class="smallbox" id="box12"></div>
+        <div class="smallbox" id="box24"></div>
+        <div class="smallbox" id="box13"></div>
+        <div class="smallbox" id="box23"></div>
+        <div class="smallbox" id="box14"></div>
+        <div class="smallbox" id="box22" style="background-color: rgba(255, 243, 81, 0.755);"></div>
+        <div class="smallbox" id="box21"></div>
+        <div class="smallbox" id="box20"></div>
+        <div class="smallbox" id="box19"></div>
+        <div class="smallbox" id="box18"></div>
+        <div class="smallbox" id="box17"></div>
+        <div class="smallbox" id="box16"></div>
+        <div class="smallbox" id="box15" style="background-color: rgba(37, 168, 255, 0.866);"></div>
+    </div>
+</div>
+<div class="container" id="formelement" style="padding: 2rem;">
+    <form >
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+            <select class="form-select" id="inputGroupSelect01">
+              <option value="2" selected>2</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" onclick="Submit(event)">Restart Game</button>
+    </form>
+</div>
+<div class="container" id="instruction">
+    <h1 class="text-center"> Instruction </h1>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Choose Number of player</div>
+            Choose Number of player from <strong> Start Menu</strong> or from the <strong>Form</strong> below ludo
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">SafePoints</div>
+            All the coloured boxes are <strong>safepoints</strong> as well as <strong>starting point</strong> for respective color
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Moving token</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">After generating number from the dice <strong>select the number card</strong> and then <strong>press the token</strong> you want to move.</li>
+                <li class="list-group-item">If you have no tokens to move, then your chance will be <strong>skipped</strong></li>
+              </ul> 
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">How to Win</div>
+              To Win just make sure to reach the <strong>endpoints</strong> with both of your tokens. <strong>endpoint</strong> is previous to the starting box
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Three 6 Rule</div>
+              As you know if you get a 6 on the dice you get extra throw of the dice but if get <strong>three 6 in row</strong> you loose your chance <strong>Turn</strong> is previous to the starting box
+            </div>
+          </li>
+      </ol>
+</div>
+<br>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
