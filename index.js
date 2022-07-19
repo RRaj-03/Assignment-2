@@ -246,7 +246,6 @@ function moveToBoard(event) {
         let displayContainer = document.getElementById("diceCard");
         displayContainer.removeChild(player.SelectedCardValue.card);
         player.NoOfCards--
-        player.noOf6--
         console.log('player.noOf6', player.noOf6)
         const generateNumber = document.getElementById("regularDice")
         is6();
@@ -346,6 +345,7 @@ function nextPlayerTurn() {
     }
     player.token=[]
     player.tokens=[]
+    player.noOf6=0
     let array = [red, blue, green, yellow]
     array.forEach(element => {
         if (player.playerTurn == element.value) {
